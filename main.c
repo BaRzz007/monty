@@ -9,6 +9,10 @@
 int main(int argc, char *argv)
 {
 	int fd;
+	instruction_t instructions[] = {
+		{"push", push},
+		{"pall", pall}
+	};
 
 	if (argc == 1 || argc > 2)
 	{
