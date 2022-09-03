@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv)
 {
-	int fd;
+	extern int fd;
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},

@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <stdio.h>
 
+extern int fd;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -34,8 +36,10 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-void _push(stack_t *head, int n);
-void _pall(stack_t *head);
 
+void _push(stack_t **head, int n);
+void push(stack_t **head, unsigned int line_number);
+void _pall(stack_t **head);
+void pall(stack_t **head, unsigned int line_number);
 
 #endif /* MAIN_H */
