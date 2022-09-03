@@ -22,3 +22,12 @@ int *_push(stack_t **head, int n)
 
 	return (new);
 }
+
+/**
+ * push - push a node to the stack
+ * @head: pointer to head pointer
+ * @line_number: line number
+ */
+void push(stack_t **head, unsigned int n)
+{
+}
