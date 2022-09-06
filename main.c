@@ -6,25 +6,41 @@
  * @argv: array of arguments
  * Return: 0 if success
  */
-int main(int argc, char *argv)
+int main(int argc, const char *argv[])
 {
-	extern int fd;
-	instruction_t instructions[] = {
+	unsigned int line_count;
+	int fd;
+	char *buffer;
+	/*instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
 		{NULL, NULL}
-	};
+	};*/
 
 	if (argc == 1 || argc > 2)
 	{
-		printf("USAGE: monty file");
+		printf("USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
-		printf("Error: Can't oen file %s", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		return (EXIT_FAILURE);
 	}
+
+
+	while (1)
+	{
+		buffer = readln(fd);
+		if (!buffer)
+			break;
+		printf("debug main: <---print buffer--->\n");
+		printf("%s\n", buffer);
+		printf("Executed\n");
+
+	}
+	close(fd);
+	return (0);
 }

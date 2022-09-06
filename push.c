@@ -28,6 +28,9 @@ int *_push(stack_t **head, int n)
  * @head: pointer to head pointer
  * @line_number: line number
  */
-void push(stack_t **head, unsigned int n)
+void push(stack_t **head, unsigned int line_number)
 {
+	char *buff;
+
+	buff = malloc(sizeof(char));
 }

@@ -4,8 +4,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-
-extern int fd;
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -37,9 +39,17 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+typedef struct inventory_s
+{
+	char *buffer;
+	size_t n;
+} inventory_t;
+extern inventory_t inventory;
+
 void _push(stack_t **head, int n);
 void push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head);
 void pall(stack_t **head, unsigned int line_number);
+char *readln(int);
 
 #endif /* MAIN_H */
