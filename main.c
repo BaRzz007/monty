@@ -8,7 +8,7 @@
  */
 int main(int argc, const char *argv[])
 {
-	unsigned int line_count;
+	/*unsigned int line_count;*/
 	int fd;
 	char *buffer;
 	/*instruction_t instructions[] = {
@@ -36,11 +36,11 @@ int main(int argc, const char *argv[])
 		buffer = readln(fd);
 		if (!buffer)
 			break;
-		printf("debug main: <---print buffer--->\n");
+		/*printf("debug main: <---print buffer--->\n");*/
 		printf("%s\n", buffer);
-		printf("Executed\n");
+		/* printf("Executed\n"); */
 
 	}
 	close(fd);
-	return (0);
+	return (EXIT_SUCCESS);
 }

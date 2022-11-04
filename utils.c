@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * readline - reads a line from a file
+ * readln - reads a line from a file
  * @fd: file descriptor
- * @buf: buffer
+ * Return: one line from file
  */
 char *readln(int fd)
 {
@@ -22,8 +22,7 @@ char *readln(int fd)
 		n = read(fd, &buf, 1);
 		if (buf == '\n')
 			return (buffer);
-		else
-			strcat(buffer, &buf);
+		strcat(buffer, &buf);
 	}
 	return (NULL);
 }
