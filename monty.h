@@ -11,7 +11,7 @@
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
- * @n: integer
+ * @n: integer data
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
  *
@@ -39,12 +39,15 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* data */
 extern int n;
 
-void _push(stack_t **head, int n);
-void push(stack_t **head, unsigned int line_number);
-void _pall(stack_t **head);
-void pall(stack_t **head, unsigned int line_number);
+/* op functions */
+void push(stack_t **, unsigned int);
+void pall(stack_t **, unsigned int);
+
+/* Utility functions */
 char *readln(int);
+void (*get_op_func(char *))(stack_t **, unsigned int);
 
 #endif /* MAIN_H */

@@ -23,7 +23,9 @@ char *readln(int fd)
 	{
 		n_read = read(fd, &buf, 1);
 		if (buf == '\n')
+		{
 			return (buffer);
+		}
 
 		if (buf != ' ' && flag == 0)
 			flag++;
@@ -41,7 +43,7 @@ char *readln(int fd)
 
 		if (flag == 2)
 			continue;
-		strcat(buffer, &buf);
+		strncat(buffer, &buf, 1);
 	}
 	return (NULL);
 }

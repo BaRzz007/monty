@@ -11,13 +11,8 @@ int main(int argc, const char *argv[])
 	unsigned int line_count;
 	int fd;
 	char *buffer;
-	/**
-	 * instruction_t instructions[] = {
-	 * {"push", push},
-	 * {"pall", pall},
-	 * {NULL, NULL}
-	 * };
-	 */
+	stack_t *stack, **head;
+	void (*func)(stack_t **, unsigned int);
 
 	if (argc == 1 || argc > 2)
 	{
@@ -32,15 +27,25 @@ int main(int argc, const char *argv[])
 		return (EXIT_FAILURE);
 	}
 
+	stack = malloc(sizeof(stack_t));
+	if (!stack)
+		return (EXIT_FAILURE);
+	head = &stack;
+
 	line_count = 0;
 	while (1)
 	{
 		buffer = readln(fd);
 		if (!buffer)
 			break;
-
 		printf("%s\n", buffer);
-		printf("%d\n", n);
+		func = get_op_func(buffer);
+		if (!func)
+		{
+			fprintf(stderr, "ERROR: no matching function\n");
+			return (EXIT_FAILURE);
+		}
+		func(head, line_count);
 
 		line_count++;
 
