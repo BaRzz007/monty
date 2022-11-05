@@ -39,12 +39,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-typedef struct inventory_s
-{
-	char *buffer;
-	size_t n;
-} inventory_t;
-extern inventory_t inventory;
+extern int n;
 
 void _push(stack_t **head, int n);
 void push(stack_t **head, unsigned int line_number);

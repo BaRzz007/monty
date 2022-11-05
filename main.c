@@ -8,18 +8,20 @@
  */
 int main(int argc, const char *argv[])
 {
-	/*unsigned int line_count;*/
+	unsigned int line_count;
 	int fd;
 	char *buffer;
-	/*instruction_t instructions[] = {
-		{"push", push},
-		{"pall", pall},
-		{NULL, NULL}
-	};*/
+	/**
+	 * instruction_t instructions[] = {
+	 * {"push", push},
+	 * {"pall", pall},
+	 * {NULL, NULL}
+	 * };
+	 */
 
 	if (argc == 1 || argc > 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 
@@ -30,17 +32,20 @@ int main(int argc, const char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-
+	line_count = 0;
 	while (1)
 	{
 		buffer = readln(fd);
 		if (!buffer)
 			break;
-		/*printf("debug main: <---print buffer--->\n");*/
+
 		printf("%s\n", buffer);
-		/* printf("Executed\n"); */
+		printf("%d\n", n);
+
+		line_count++;
 
 	}
+	free(buffer);
 	close(fd);
 	return (EXIT_SUCCESS);
 }
