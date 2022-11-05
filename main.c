@@ -39,6 +39,8 @@ int main(int argc, const char *argv[])
 		if (!buffer)
 			break;
 		printf("%s\n", buffer);
+		if (strcmp(buffer, "") == 0)
+			continue;
 		func = get_op_func(buffer);
 		if (!func)
 		{
