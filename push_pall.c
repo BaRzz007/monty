@@ -8,8 +8,7 @@
 void pall(stack_t **head, unsigned int line_number)
 {
 	(void)head;
-	(void)line_number;
-	printf("Done pall\n");
+	printf("line %d: Done pall\n", line_number);
 }
 
 /**
@@ -20,8 +19,7 @@ void pall(stack_t **head, unsigned int line_number)
 void push(stack_t **head, unsigned int line_number)
 {
 	(void)head;
-	(void)line_number;
-	printf("Done push %d\n", n);
+	printf("line %d: Done push %s\n", line_number, inventory->n);
 	/*stack_t *new;
 
 	new = malloc(sizeof(stack_t));

@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <string.h>
 
+/* structs */
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer data
@@ -39,8 +40,20 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* data */
-extern int n;
+/**
+ * struct inventory_s - inventory structure
+ * @code: code from parseln function
+ * @input: int data
+ */
+typedef struct inventory_s
+{
+	char *code;
+	char *n;
+} inventory_t;
+
+/* global data */
+extern inventory_t *inventory;
+inventory_t *inventory;
 
 /* op functions */
 void push(stack_t **, unsigned int);
@@ -49,5 +62,7 @@ void pall(stack_t **, unsigned int);
 /* Utility functions */
 char *readln(int);
 void (*get_op_func(char *))(stack_t **, unsigned int);
+int build_inventory(void);
+int parseln(char *);
 
 #endif /* MAIN_H */

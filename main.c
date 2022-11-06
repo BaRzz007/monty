@@ -38,10 +38,18 @@ int main(int argc, const char *argv[])
 		buffer = readln(fd);
 		if (!buffer)
 			break;
-		printf("%s\n", buffer);
-		if (strcmp(buffer, "") == 0)
+
+		inventory = NULL;
+		if(build_inventory() == EXIT_FAILURE)
+			return (EXIT_FAILURE);
+
+		parseln(buffer);
+
+		if (!inventory->code)
 			continue;
-		func = get_op_func(buffer);
+
+		printf("%s\n", inventory->code);
+		func = get_op_func(inventory->code);
 		if (!func)
 		{
 			fprintf(stderr, "ERROR: no matching function\n");
@@ -52,7 +60,6 @@ int main(int argc, const char *argv[])
 		line_count++;
 
 	}
-	free(buffer);
 	close(fd);
 	return (EXIT_SUCCESS);
 }
