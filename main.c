@@ -10,9 +10,7 @@ int main(int argc, const char *argv[])
 {
 	unsigned int line_count;
 	int fd;
-	char *buffer;
-	stack_t *stack, **head;
-	void (*func)(stack_t **, unsigned int);
+	stack_t *stack;
 
 	if (argc == 1 || argc > 2)
 	{
@@ -30,39 +28,13 @@ int main(int argc, const char *argv[])
 	stack = malloc(sizeof(stack_t));
 	if (!stack)
 		return (EXIT_FAILURE);
-	head = &stack;
 
 	line_count = 0;
-	while (1)
+	if (execute(stack, fd, line_count) == EXIT_SUCCESS)
 	{
-		buffer = readln(fd);
-		if (!buffer)
-			break;
-
-		inventory = NULL;
-		if(build_inventory() == EXIT_FAILURE)
-			return (EXIT_FAILURE);
-
-		parseln(buffer);
-
-		if (!inventory->code)
-		{
-			line_count++;
-			continue;
-		}
-
-		printf("%s\n", inventory->code);
-		func = get_op_func(inventory->code);
-		if (!func)
-		{
-			fprintf(stderr, "ERROR: no matching function\n");
-			return (EXIT_FAILURE);
-		}
-		func(head, line_count);
-
-		line_count++;
-
+		close(fd);
+		return (EXIT_SUCCESS);
 	}
-	close(fd);
-	return (EXIT_SUCCESS);
+
+	return (EXIT_FAILURE);
 }

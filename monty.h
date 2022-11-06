@@ -64,5 +64,6 @@ char *readln(int);
 void (*get_op_func(char *))(stack_t **, unsigned int);
 int build_inventory(void);
 int parseln(char *);
+int execute(stack_t *, int, unsigned int);
 
 #endif /* MAIN_H */
