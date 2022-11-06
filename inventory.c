@@ -12,8 +12,8 @@ int build_inventory(void)
 		fprintf(stderr, "Inventory build error message");
 		return (EXIT_FAILURE);
 	}
-	
+
 	inventory->code = NULL;
 	inventory->n = NULL;
-	return(EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }

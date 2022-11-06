@@ -46,7 +46,10 @@ int main(int argc, const char *argv[])
 		parseln(buffer);
 
 		if (!inventory->code)
+		{
+			line_count++;
 			continue;
+		}
 
 		printf("%s\n", inventory->code);
 		func = get_op_func(inventory->code);
