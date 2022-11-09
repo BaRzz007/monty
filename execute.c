@@ -4,7 +4,6 @@
  * execute - execute line code recursively
  * @fd: file descriptor
  * @line_number: line number
- * @stack: pointer to stack
  * Return: EXIT_SUCCESS or EXIT_FAILURE
  */
 int execute(int fd, unsigned int line_number)
