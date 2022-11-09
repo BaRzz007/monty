@@ -10,7 +10,6 @@ int main(int argc, const char *argv[])
 {
 	unsigned int line_count;
 	int fd;
-	stack_t *stack;
 
 	if (argc == 1 || argc > 2)
 	{
@@ -25,12 +24,11 @@ int main(int argc, const char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	stack = malloc(sizeof(stack_t));
-	if (!stack)
+	if (build_inventory() == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 
 	line_count = 0;
-	if (execute(stack, fd, line_count) == EXIT_SUCCESS)
+	if (execute(fd, line_count) == EXIT_SUCCESS)
 	{
 		close(fd);
 		return (EXIT_SUCCESS);

@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <string.h>
+#include <ctype.h>
 
 /* structs */
 /**
@@ -49,6 +50,7 @@ typedef struct inventory_s
 {
 	char *code;
 	char *n;
+	stack_t *stack;
 } inventory_t;
 
 /* global data */
@@ -64,6 +66,7 @@ char *readln(int);
 void (*get_op_func(char *))(stack_t **, unsigned int);
 int build_inventory(void);
 int parseln(char *);
-int execute(stack_t *, int, unsigned int);
+int execute(int, unsigned int);
+int to_int(char *);
 
 #endif /* MAIN_H */
