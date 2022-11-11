@@ -8,6 +8,7 @@
  */
 int main(int argc, const char *argv[])
 {
+	/*stack_t **current, *temp;*/
 	unsigned int line_count;
 	int fd;
 
@@ -27,12 +28,13 @@ int main(int argc, const char *argv[])
 	if (build_inventory() == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 
-	line_count = 0;
-	if (execute(fd, line_count) == EXIT_SUCCESS)
+	line_count = 1;
+	if (execute(fd, line_count) == EXIT_FAILURE)
 	{
-		close(fd);
-		return (EXIT_SUCCESS);
+		free_all();
+		return (EXIT_FAILURE);
 	}
 
-	return (EXIT_FAILURE);
+	free_all();
+	return (EXIT_SUCCESS);
 }

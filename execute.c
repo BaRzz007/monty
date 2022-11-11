@@ -13,7 +13,10 @@ int execute(int fd, unsigned int line_number)
 
 	buffer = readln(fd);
 	if (!buffer)
+	{
+		free(buffer);
 		return (EXIT_SUCCESS);
+	}
 
 	inventory->code = NULL;
 	inventory->n = NULL;
@@ -23,18 +26,22 @@ int execute(int fd, unsigned int line_number)
 	if (!inventory->code)
 	{
 		line_number++;
+		free(buffer);
 		return (execute(fd, line_number));
 	}
 
 	func = get_op_func(inventory->code);
 	if (!func)
 	{
-		fprintf(stderr, "Error: no matching function\n");
+		fprintf(stderr, "L%d: unknown instruction %s\n",
+				line_number, inventory->code);
+		free(buffer);
 		return (EXIT_FAILURE);
 	}
 
-	func(&inventory->stack, line_number);
-
-	line_number++;
-	return (execute(fd, line_number));
+	inventory->line = buffer;
+	func(&inventory->stack, line_number++);
+	
+	free(buffer);
+	return (execute(fd, line_number++));
 }

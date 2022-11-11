@@ -51,6 +51,7 @@ typedef struct inventory_s
 	char *code;
 	char *n;
 	stack_t *stack;
+	char *line;
 } inventory_t;
 
 /* global data */
@@ -68,5 +69,8 @@ int build_inventory(void);
 int parseln(char *);
 int execute(int, unsigned int);
 int to_int(char *);
+void free_all();
+void free_stack(void);
+void free_inventory();
 
 #endif /* MAIN_H */
