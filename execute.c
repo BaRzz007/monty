@@ -41,7 +41,7 @@ int execute(int fd, unsigned int line_number)
 
 	inventory->line = buffer;
 	func(&inventory->stack, line_number++);
-	
+
 	free(buffer);
 	return (execute(fd, line_number++));
 }

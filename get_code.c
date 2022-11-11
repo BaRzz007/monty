@@ -19,7 +19,7 @@ char *readln(int fd)
 		return (NULL);
 	}
 	buffer[0] = '\0';
-	
+
 	n_read = 1;
 	while (n_read > 0)
 	{
