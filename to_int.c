@@ -12,12 +12,14 @@ int to_int(char *n)
 
 	if (n == NULL)
 		return (-1);
+
 	for (i = 0; n[i] != '\0'; i++)
 	{
+		if (n[i] == '-')
+			continue;
+		
 		if (isdigit(n[i]) == 0)
-		{
 			return (-1);
-		}
 	}
 	num = atoi(n);
 
