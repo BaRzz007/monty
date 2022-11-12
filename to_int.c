@@ -17,9 +17,9 @@ int to_int(char *n)
 	{
 		if (n[i] == '-')
 			continue;
-		
+
 		if (isdigit(n[i]) == 0)
-			return (-1);
+			return ('\0');
 	}
 	num = atoi(n);
 
