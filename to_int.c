@@ -11,7 +11,7 @@ int to_int(char *n)
 	int num, i;
 
 	if (n == NULL)
-		return (-1);
+		return ('a');
 
 	for (i = 0; n[i] != '\0'; i++)
 	{
