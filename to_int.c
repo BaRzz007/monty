@@ -19,7 +19,7 @@ int to_int(char *n)
 			continue;
 
 		if (isdigit(n[i]) == 0)
-			return ('\0');
+			return ('a');
 	}
 	num = atoi(n);
 

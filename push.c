@@ -12,7 +12,7 @@ void push(stack_t **head, unsigned int line_number)
 	(void)line_number;
 
 	n = to_int(inventory->n);
-	if (n == '\0')
+	if (n == 'a')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free(inventory->line);
