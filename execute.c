@@ -11,15 +11,15 @@ int execute(int fd, unsigned int line_number)
 	char *buffer;
 	void (*func)(stack_t **, unsigned int);
 
+	inventory->code = NULL;
+	inventory->n = NULL;
+
 	buffer = readln(fd);
 	if (!buffer)
 	{
 		free(buffer);
 		return (EXIT_SUCCESS);
 	}
-
-	inventory->code = NULL;
-	inventory->n = NULL;
 
 	parseln(buffer);
 
@@ -29,6 +29,7 @@ int execute(int fd, unsigned int line_number)
 		free(buffer);
 		return (execute(fd, line_number));
 	}
+
 
 	func = get_op_func(inventory->code);
 	if (!func)

@@ -43,7 +43,7 @@ int parseln(char *line)
 {
 	char *delim;
 
-	delim = "\n ";
+	delim = "\n\t ";
 	inventory->code = strtok(line, delim);
 	inventory->n = strtok(NULL, delim);
 

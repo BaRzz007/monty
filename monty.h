@@ -61,6 +61,7 @@ inventory_t *inventory;
 /* op functions */
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
+void pint(stack_t **, unsigned int);
 
 /* Utility functions */
 char *readln(int);
