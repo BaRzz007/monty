@@ -16,7 +16,7 @@ void (*get_op_func(char *str))(stack_t **, unsigned int)
 	};
 
 	i = 0;
-	while (i < 5)
+	while (i < 4)
 	{
 		if (strcmp(str, func[i].opcode) == 0)
 		{

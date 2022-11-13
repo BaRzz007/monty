@@ -11,8 +11,8 @@ int execute(int fd, unsigned int line_number)
 	char *buffer;
 	void (*func)(stack_t **, unsigned int);
 
-	inventory->code = NULL;
-	inventory->n = NULL;
+	/*inventory->code = NULL;
+	inventory->n = NULL;*/
 
 	buffer = readln(fd);
 	if (!buffer)
@@ -20,6 +20,9 @@ int execute(int fd, unsigned int line_number)
 		free(buffer);
 		return (EXIT_SUCCESS);
 	}
+
+	inventory->code = NULL;
+	inventory->n = NULL;
 
 	parseln(buffer);
 
