@@ -11,12 +11,12 @@ void (*get_op_func(char *str))(stack_t **, unsigned int)
 
 	instruction_t func[] = {
 		{"push", push}, {"pint", pint},
-		{"pall", pall},
+		{"pall", pall}, {"pop", pop},
 		{NULL, NULL}
 	};
 
 	i = 0;
-	while (i < 2)
+	while (i < 5)
 	{
 		if (strcmp(str, func[i].opcode) == 0)
 		{

@@ -51,6 +51,7 @@ typedef struct inventory_s
 	char *code;
 	char *n;
 	stack_t *stack;
+	stack_t *tail;
 	char *line;
 } inventory_t;
 
@@ -62,6 +63,7 @@ inventory_t *inventory;
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
+void pop(stack_t **, unsigned int);
 
 /* Utility functions */
 char *readln(int);

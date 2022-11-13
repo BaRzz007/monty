@@ -33,5 +33,7 @@ void push(stack_t **head, unsigned int line_number)
 	new->next = *head;
 	new->n = n;
 
+	if (!(*head))
+		inventory->tail = new;
 	*head = new;
 }

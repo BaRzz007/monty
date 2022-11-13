@@ -14,6 +14,7 @@ int build_inventory(void)
 		return (EXIT_FAILURE);
 	}
 
+	inventory->tail = NULL;
 	inventory->stack = NULL;
 	inventory->n = NULL;
 	return (EXIT_SUCCESS);
