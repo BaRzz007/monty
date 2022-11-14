@@ -11,7 +11,7 @@ void (*get_op_func(char *str))(stack_t **, unsigned int)
 
 	instruction_t func[] = {
 		{"push", push}, {"pint", pint}, {"swap", swap},
-		{"pall", pall}, {"pop", pop},
+		{"pall", pall}, {"pop", pop}, {"add", add},
 		{NULL, NULL}
 	};
 
