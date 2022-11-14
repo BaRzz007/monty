@@ -15,9 +15,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (!current)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		free(inventory->line);
-		free_all();
-		exit(EXIT_FAILURE);
+		op_error_exit();
 	}
 
 	printf("%d\n", current->n);

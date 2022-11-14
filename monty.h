@@ -64,6 +64,7 @@ void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
+void swap(stack_t **, unsigned int);
 
 /* Utility functions */
 char *readln(int);
@@ -74,6 +75,7 @@ int execute(int, unsigned int);
 int to_int(char *);
 void free_all();
 void free_stack(void);
-void free_inventory();
+void free_inventory(void);
+void op_error_exit(void);
 
 #endif /* MAIN_H */

@@ -11,9 +11,6 @@ int execute(int fd, unsigned int line_number)
 	char *buffer;
 	void (*func)(stack_t **, unsigned int);
 
-	/*inventory->code = NULL;
-	inventory->n = NULL;*/
-
 	buffer = readln(fd);
 	if (!buffer)
 	{
@@ -33,8 +30,6 @@ int execute(int fd, unsigned int line_number)
 		return (execute(fd, line_number));
 	}
 
-
-	/* printf("%s\n", inventory->code); */
 	func = get_op_func(inventory->code);
 	if (!func)
 	{
